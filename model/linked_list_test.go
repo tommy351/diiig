@@ -148,4 +148,17 @@ func TestLinkedList_Remove(t *testing.T) {
 			assert.Equal(t, len(expected), list.Length())
 		})
 	}
+
+	t.Run("multi", func(t *testing.T) {
+		elements := []Element{
+			{Key: "a", Value: 1},
+			{Key: "a", Value: 1},
+			{Key: "b", Value: 2},
+		}
+		list := makeLinkedList(elements)
+		list.Remove("a")
+
+		assert.Equal(t, elements[2:], linkedListToSlice(list))
+		assert.Equal(t, 1, list.Length())
+	})
 }

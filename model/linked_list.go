@@ -59,7 +59,6 @@ func (l *LinkedList) Remove(key string) {
 			}
 
 			l.len--
-			return
 		}
 
 		cursor = next
