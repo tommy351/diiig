@@ -8,8 +8,8 @@ import (
 )
 
 type Server struct {
-	Host string `long:"host" description:"the host of the server"`
-	Port int    `long:"port" default:"4000" description:"the port of the server"`
+	Host string `long:"host" env:"HOST" description:"the host of the server"`
+	Port int    `long:"port" env:"PORT" default:"4000" description:"the port of the server"`
 
 	TopicDAO dao.TopicDAO
 }

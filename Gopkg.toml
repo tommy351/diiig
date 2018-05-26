@@ -13,3 +13,7 @@
 [prune]
   go-tests = true
   unused-packages = true
+
+[metadata.heroku]
+  root-package = "github.com/tommy351/diiig/cmd/diiig-server"
+  install = ["./cmd/..."]
