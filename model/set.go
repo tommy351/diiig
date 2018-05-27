@@ -50,15 +50,12 @@ func (s *Set) Range(start, end int) (elements []Element) {
 		end = s.Length() + end
 	}
 
-	i := 0
 	enum := s.Each()
 
-	for i <= end && enum.Next() {
-		if i >= start {
+	for enum.Next() && enum.Index() <= end {
+		if enum.Index() >= start {
 			elements = append(elements, *enum.Value())
 		}
-
-		i++
 	}
 
 	return

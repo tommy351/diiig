@@ -68,10 +68,11 @@ func (l *LinkedList) Remove(key string) {
 	}
 }
 
-// Each returns an enumerator to iterate over the list.
-func (l *LinkedList) Each() Enumerator {
-	return &linkedListEnumerator{
-		node: l.head,
+// Each returns an iterator to iterate over the list.
+func (l *LinkedList) Each() Iterator {
+	return &linkedListIterator{
+		node:  l.head,
+		index: -1,
 	}
 }
 
@@ -112,21 +113,27 @@ type linkedListNode struct {
 	value *Element
 }
 
-type linkedListEnumerator struct {
+type linkedListIterator struct {
 	node  *linkedListNode
 	value *Element
+	index int
 }
 
-func (l *linkedListEnumerator) Next() bool {
+func (l *linkedListIterator) Next() bool {
 	if l.node == nil {
 		return false
 	}
 
 	l.value = l.node.value
 	l.node = l.node.next
+	l.index++
 	return true
 }
 
-func (l *linkedListEnumerator) Value() *Element {
+func (l *linkedListIterator) Value() *Element {
 	return l.value
+}
+
+func (l *linkedListIterator) Index() int {
+	return l.index
 }

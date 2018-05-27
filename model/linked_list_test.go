@@ -85,6 +85,7 @@ func TestLinkedList_Each(t *testing.T) {
 
 		for enum.Next() {
 			assert.Equal(t, &elements[i], enum.Value())
+			assert.Equal(t, i, enum.Index())
 			i++
 		}
 
