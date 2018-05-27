@@ -11,6 +11,7 @@ type Set struct {
 	Collection
 }
 
+// Add inserts the key to the set if the key does not exist yet.
 func (s *Set) Add(key string) {
 	if s.Get(key) == nil {
 		s.Insert(&Element{
@@ -19,6 +20,7 @@ func (s *Set) Add(key string) {
 	}
 }
 
+// Increment adds the value of the element in the set.
 func (s *Set) Increment(key string, n int) {
 	elem := s.Get(key)
 
@@ -38,6 +40,7 @@ func (s *Set) Increment(key string, n int) {
 	}
 }
 
+// Range returns a slice of elements within the specified range.
 func (s *Set) Range(start, end int) (elements []Element) {
 	if start < 0 {
 		start = s.Length() + start

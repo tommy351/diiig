@@ -6,6 +6,7 @@ type LinkedList struct {
 	len  int
 }
 
+// Insert adds an element to the list and make sure the list is ordered.
 func (l *LinkedList) Insert(element *Element) {
 	cursor := l.head
 	l.len++
@@ -26,6 +27,7 @@ func (l *LinkedList) Insert(element *Element) {
 	l.prepend(element)
 }
 
+// Get returns the element with the specified key.
 func (l *LinkedList) Get(key string) *Element {
 	cursor := l.head
 
@@ -40,6 +42,7 @@ func (l *LinkedList) Get(key string) *Element {
 	return nil
 }
 
+// Remove deletes the element with the specified key from the list.
 func (l *LinkedList) Remove(key string) {
 	cursor := l.head
 
@@ -65,12 +68,14 @@ func (l *LinkedList) Remove(key string) {
 	}
 }
 
+// Each returns an enumerator to iterate over the list.
 func (l *LinkedList) Each() Enumerator {
 	return &linkedListEnumerator{
 		node: l.head,
 	}
 }
 
+// Length returns the number of elements in the list.
 func (l *LinkedList) Length() int {
 	return l.len
 }

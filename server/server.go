@@ -7,6 +7,7 @@ import (
 	"github.com/tommy351/diiig/dao"
 )
 
+// Server represents an instance of a server.
 type Server struct {
 	Host string `long:"host" env:"HOST" description:"the host of the server"`
 	Port int    `long:"port" env:"PORT" default:"4000" description:"the port of the server"`
@@ -14,6 +15,7 @@ type Server struct {
 	TopicDAO dao.TopicDAO
 }
 
+// Serve starts the server.
 func (s *Server) Serve() error {
 	r := gin.Default()
 	addr := fmt.Sprintf("%s:%d", s.Host, s.Port)
