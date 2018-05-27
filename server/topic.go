@@ -15,7 +15,7 @@ type voteTopicForm struct {
 	Score int    `form:"score" binding:"required"`
 }
 
-// CreateTopic create a new topic and redirect to the home page.
+// CreateTopic creates a new topic and redirects to the home page.
 func (s *Server) CreateTopic(c *gin.Context) {
 	var form createTopicForm
 
@@ -31,7 +31,7 @@ func (s *Server) CreateTopic(c *gin.Context) {
 	redirectToHome(c)
 }
 
-// VoteTopic adds score of the topic and redirect to the home page.
+// VoteTopic adds the score of the topic and redirects to the home page.
 func (s *Server) VoteTopic(c *gin.Context) {
 	var form voteTopicForm
 
