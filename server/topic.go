@@ -7,7 +7,7 @@ import (
 )
 
 type createTopicForm struct {
-	Topic string `form:"topic" binding:"required"`
+	Topic string `form:"topic" binding:"required,lte=255"`
 }
 
 type voteTopicForm struct {
@@ -20,7 +20,8 @@ func (s *Server) CreateTopic(c *gin.Context) {
 	var form createTopicForm
 
 	if err := c.Bind(&form); err != nil {
-		panic(err)
+		c.String(http.StatusBadRequest, err.Error())
+		return
 	}
 
 	if err := s.TopicDAO.Create(form.Topic); err != nil {
@@ -35,7 +36,8 @@ func (s *Server) VoteTopic(c *gin.Context) {
 	var form voteTopicForm
 
 	if err := c.Bind(&form); err != nil {
-		panic(err)
+		c.String(http.StatusBadRequest, err.Error())
+		return
 	}
 
 	if err := s.TopicDAO.Vote(form.Topic, form.Score); err != nil {
