@@ -10,4 +10,5 @@ install:
   - dep ensure
 
 script:
+  - go tool vet .
   - go test ./...
