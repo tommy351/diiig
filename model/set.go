@@ -53,7 +53,7 @@ func (s *Set) Range(start, end int) (elements []Element) {
 	i := 0
 	enum := s.Each()
 
-	for enum.Next() && i <= end {
+	for i <= end && enum.Next() {
 		if i >= start {
 			elements = append(elements, *enum.Value())
 		}
