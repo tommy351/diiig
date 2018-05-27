@@ -19,5 +19,5 @@ required = [
   unused-packages = true
 
 [metadata.heroku]
-  root-package = "github.com/tommy351/diiig/cmd/diiig-server"
+  root-package = "github.com/tommy351/diiig"
   install = ["./cmd/..."]

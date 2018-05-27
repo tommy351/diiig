@@ -8,7 +8,9 @@ before_install:
 
 install:
   - dep ensure
+  - go get -u github.com/golang/lint/golint
 
 script:
-  - go tool vet .
+  - go vet ./...
+  - golint -set_exit_status $(go list ./...)
   - go test ./...
