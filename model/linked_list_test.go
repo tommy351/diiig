@@ -17,10 +17,10 @@ func makeLinkedList(elements []Element) *LinkedList {
 }
 
 func linkedListToSlice(list *LinkedList) (elements []Element) {
-	enum := list.Each()
+	iter := list.Each()
 
-	for enum.Next() {
-		elements = append(elements, *enum.Value())
+	for iter.Next() {
+		elements = append(elements, *iter.Value())
 	}
 
 	return
@@ -80,12 +80,12 @@ func TestLinkedList_Each(t *testing.T) {
 			{Key: "c", Value: 1},
 		}
 		list := makeLinkedList(elements)
-		enum := list.Each()
+		iter := list.Each()
 		i := 0
 
-		for enum.Next() {
-			assert.Equal(t, &elements[i], enum.Value())
-			assert.Equal(t, i, enum.Index())
+		for iter.Next() {
+			assert.Equal(t, &elements[i], iter.Value())
+			assert.Equal(t, i, iter.Index())
 			i++
 		}
 
@@ -94,9 +94,9 @@ func TestLinkedList_Each(t *testing.T) {
 
 	t.Run("Empty", func(t *testing.T) {
 		list := new(LinkedList)
-		enum := list.Each()
-		assert.False(t, enum.Next())
-		assert.Nil(t, enum.Value())
+		iter := list.Each()
+		assert.False(t, iter.Next())
+		assert.Nil(t, iter.Value())
 	})
 }
 

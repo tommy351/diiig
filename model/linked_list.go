@@ -14,6 +14,11 @@ func (l *LinkedList) Insert(element *Element) {
 	for cursor != nil {
 		next := cursor.next
 
+		// If the value of cursor is larger than the element.
+		// The element should be inserted after the cursor when either:
+		//
+		// - the cursor is the last element
+		// - the value of the next element is smaller than or equals to the element
 		if cursor.value.Value > element.Value {
 			if next == nil || next.value.Value <= element.Value {
 				l.insertAfter(element, cursor)

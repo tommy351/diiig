@@ -42,6 +42,7 @@ func (s *Set) Increment(key string, n int) {
 
 // Range returns a slice of elements within the specified range.
 func (s *Set) Range(start, end int) (elements []Element) {
+	// Handle negative indices
 	if start < 0 {
 		start = s.Length() + start
 	}
@@ -50,11 +51,11 @@ func (s *Set) Range(start, end int) (elements []Element) {
 		end = s.Length() + end
 	}
 
-	enum := s.Each()
+	iter := s.Each()
 
-	for enum.Next() && enum.Index() <= end {
-		if enum.Index() >= start {
-			elements = append(elements, *enum.Value())
+	for iter.Next() && iter.Index() <= end {
+		if iter.Index() >= start {
+			elements = append(elements, *iter.Value())
 		}
 	}
 
