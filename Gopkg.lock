@@ -48,8 +48,18 @@
   version = "v1.0.0"
 
 [[projects]]
+  name = "github.com/stretchr/objx"
+  packages = ["."]
+  revision = "facf9a85c22f48d2f52f2380e4efce1768749a89"
+  version = "v0.1"
+
+[[projects]]
   name = "github.com/stretchr/testify"
-  packages = ["assert"]
+  packages = [
+    "assert",
+    "mock",
+    "require"
+  ]
   revision = "12b6f73e6084dad08a7c6e575284b177ecafbc71"
   version = "v1.2.1"
 
@@ -61,9 +71,30 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/vektra/mockery"
+  packages = [
+    "cmd/mockery",
+    "mockery"
+  ]
+  revision = "2a9162cbfb7a0f9094ed6f765d212a5ddee000d3"
+
+[[projects]]
+  branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix"]
   revision = "c11f84a56e43e20a78cee75a7c034031ecf57d1f"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/tools"
+  packages = [
+    "go/ast/astutil",
+    "go/buildutil",
+    "go/loader",
+    "imports",
+    "internal/fastwalk"
+  ]
+  revision = "a5b4c53f6e8bdcafa95a94671bf2d1203365858b"
 
 [[projects]]
   name = "gopkg.in/go-playground/validator.v8"
@@ -80,6 +111,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "9a30fc4b604fa982ebc41e7e5c8390dfe3aaba0edddbce0c0f957e0bcf088743"
+  inputs-digest = "32833f183cee22004eb39515f8540f2125ac840e20abed48930ae000158677a6"
   solver-name = "gps-cdcl"
   solver-version = 1
