@@ -28,12 +28,12 @@ go test ./...
 
 ## Design
 
-This project use a linked list to store the list of topics. The list is sorted on insertion. There're some reasons why I chose linked list for storage:
+This project use a linked list to store the list of topics. The list is sorted on insertion. Here are some reasons why I chose linked list for storage:
 
 - It takes less effort to make the list ordered. We just need to insert the element to the right position.
 - Only the top N topics need to be displayed. So, we don't have to iterate over the whole list.
 
 What can be improved?
 
-- [ ] Try [skip list](https://en.wikipedia.org/wiki/Skip_list)? (like zset in Redis)
-- [ ] Update elements in the linked list directly rather than remove and insert.
+- Try [skip list](https://en.wikipedia.org/wiki/Skip_list)? (like zset in Redis)
+- Update elements in the linked list directly rather than remove and insert.
