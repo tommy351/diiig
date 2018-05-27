@@ -1,3 +1,8 @@
+package server
+
+import "html/template"
+
+var homeTemplate = template.Must(template.New("home").Parse(`
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,3 +42,4 @@
 </ul>
 </body>
 </html>
+`))

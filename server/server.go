@@ -17,14 +17,16 @@ type Server struct {
 
 // Serve starts the server.
 func (s *Server) Serve() error {
-	r := gin.Default()
 	addr := fmt.Sprintf("%s:%d", s.Host, s.Port)
+	return s.router(gin.Default()).Run(addr)
+}
 
-	r.LoadHTMLGlob("templates/*")
+func (s *Server) router(r *gin.Engine) *gin.Engine {
+	r.SetHTMLTemplate(homeTemplate)
 
 	r.GET("/", s.Home)
 	r.POST("/topics", s.CreateTopic)
 	r.POST("/vote", s.VoteTopic)
 
-	return r.Run(addr)
+	return r
 }

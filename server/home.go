@@ -16,7 +16,7 @@ func (s *Server) Home(c *gin.Context) {
 		panic(err)
 	}
 
-	c.HTML(http.StatusOK, "home.html", gin.H{
+	c.HTML(http.StatusOK, "home", gin.H{
 		"Topics": topics,
 	})
 }
